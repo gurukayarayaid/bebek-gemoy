@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Duck from "@/components/Duck";
 import { WARNA_PEMAIN, type Pemain } from "@/types";
 
@@ -40,8 +41,62 @@ function Awan({ atas, skala, durasi, tunda }: { atas: string; skala: number; dur
 }
 
 export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isiRef = useRef<HTMLDivElement>(null);
+  const kunci = `${pemain.length}-${target}-${pemain.map((p) => p.langkah).join(",")}`;
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const isi = isiRef.current;
+    if (!section || !isi) return;
+
+    let batal = false;
+    const pengamat: ResizeObserver[] = [];
+
+    const fit = () => {
+      if (batal) return;
+      isi.style.transform = "none";
+      isi.style.width = "100%";
+      isi.style.transformOrigin = "top left";
+      void isi.offsetHeight;
+
+      const tersedia = section.clientHeight - 6;
+      const alami = isi.scrollHeight;
+      if (tersedia < 8 || alami < 8) return;
+
+      const skala = Math.min(1, tersedia / alami);
+      if (skala < 0.995) {
+        isi.style.transform = `scale(${skala})`;
+        isi.style.width = `${100 / skala}%`;
+      }
+    };
+
+    const jadwal = () => {
+      cancelAnimationFrame(jadwal.raf);
+      jadwal.raf = requestAnimationFrame(fit);
+    };
+    jadwal.raf = 0;
+
+    fit();
+    jadwal();
+
+    const ro1 = new ResizeObserver(jadwal);
+    ro1.observe(section);
+    pengamat.push(ro1);
+    const ro2 = new ResizeObserver(jadwal);
+    ro2.observe(isi);
+    pengamat.push(ro2);
+
+    return () => {
+      batal = true;
+      cancelAnimationFrame(jadwal.raf);
+      pengamat.forEach((r) => r.disconnect());
+    };
+  }, [kunci, pemain.length, target]);
+
   return (
     <section
+      ref={sectionRef}
       className="lintasan relative isolate h-auto min-h-0 max-h-[28vh] shrink overflow-hidden rounded-[18px] border-[3px] border-ink/25 shadow-[0_18px_40px_-20px_rgba(22,35,61,.65)] sm:rounded-[22px]"
       aria-label="Lintasan balap bebek"
     >
@@ -105,7 +160,7 @@ export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
       </div>
 
       {/* isi lintasan */}
-      <div className="lintasan-isi relative z-20 overflow-hidden px-2 pt-3 pb-1 sm:px-3 sm:pt-6 sm:pb-2">
+      <div ref={isiRef} className="lintasan-isi relative z-20 overflow-hidden px-2 pt-3 pb-1 sm:px-3 sm:pt-6 sm:pb-2">
         <div className="mb-1 flex items-center justify-between px-0.5 font-display text-[9px] font-extrabold tracking-[0.16em] text-ink/70 uppercase sm:text-[10px]">
           <span className="rounded-full bg-white/70 px-2 py-0.5">Garis Start</span>
           <span className="hidden rounded-full bg-white/70 px-2 py-0.5 sm:inline">{target} langkah sampai finis</span>
