@@ -241,15 +241,15 @@
   container-name: papan;
 }
 
-/* Layar pendek / zoom besar — prioritas: papan angka + JAWAB tetap terlihat */
+/* Layar pendek — jaga JAWAB tetap terlihat; lintasan tetap prioritas besar */
 @media (max-height: 820px) {
   .lintasan {
-    max-height: min(160px, 24vh);
+    max-height: min(48vh, 420px);
   }
 }
 @media (max-height: 760px) {
   .lintasan {
-    max-height: min(140px, 22vh);
+    max-height: min(46vh, 360px);
   }
   .gg-tombol {
     height: 1.5rem;
@@ -264,7 +264,7 @@
 }
 @media (max-height: 680px) {
   .lintasan {
-    max-height: min(118px, 20vh);
+    max-height: min(44vh, 320px);
   }
   .gg-tombol {
     height: 1.35rem;
@@ -273,7 +273,7 @@
 }
 @media (max-height: 640px) {
   .lintasan {
-    max-height: min(108px, 18vh);
+    max-height: min(42vh, 290px);
   }
   .gg-tombol {
     height: 1.25rem;
@@ -290,7 +290,7 @@
 }
 @media (max-height: 560px) {
   .lintasan {
-    max-height: min(92px, 16vh);
+    max-height: min(40vh, 250px);
   }
   .gg-tombol {
     height: 1.15rem;

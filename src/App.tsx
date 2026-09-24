@@ -508,7 +508,7 @@ export default function App() {
           <RaceTrack pemain={pemain} target={pengaturan.langkahMenang} juaraId={juaraId} mulai={tahap === "main"} />
 
           <div
-            className={`grid min-h-0 flex-1 overflow-hidden gap-1.5 sm:gap-2 ${
+            className={`grid min-h-0 flex-[2] overflow-hidden gap-1.5 sm:gap-2 ${
               pengaturan.jumlahPemain === 2
                 ? "grid-cols-2 grid-rows-1"
                 : pengaturan.jumlahPemain === 3

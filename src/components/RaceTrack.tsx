@@ -64,8 +64,8 @@ export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
       const alami = isi.scrollHeight;
       if (tersedia < 8 || alami < 8) return;
 
-      const skala = Math.min(1, tersedia / alami);
-      if (skala < 0.995) {
+      const skala = Math.max(0.2, Math.min(2.2, tersedia / alami));
+      if (Math.abs(skala - 1) > 0.005) {
         isi.style.transform = `scale(${skala})`;
         isi.style.width = `${100 / skala}%`;
       }
@@ -97,7 +97,7 @@ export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
   return (
     <section
       ref={sectionRef}
-      className="lintasan relative isolate h-auto min-h-0 max-h-[28vh] shrink overflow-hidden rounded-[18px] border-[3px] border-ink/25 shadow-[0_18px_40px_-20px_rgba(22,35,61,.65)] sm:rounded-[22px]"
+      className="lintasan relative isolate min-h-0 max-h-[52vh] flex-[3] overflow-hidden rounded-[18px] border-[3px] border-ink/25 shadow-[0_18px_40px_-20px_rgba(22,35,61,.65)] sm:rounded-[22px]"
       aria-label="Lintasan balap bebek"
     >
       {/* langit */}
