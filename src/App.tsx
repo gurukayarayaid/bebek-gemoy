@@ -426,9 +426,9 @@ export default function App() {
           />
         </div>
       ) : (
-        <main className="relative flex h-full min-h-0 flex-col gap-2 overflow-hidden px-2 pt-2 pb-2 sm:gap-2.5 sm:px-3 sm:pt-2.5">
+        <main className="relative flex h-full min-h-0 flex-col gap-2 overflow-hidden px-2 pt-2 pb-2 sm:gap-2 sm:px-3 sm:pt-2.5">
           {/* HUD */}
-          <div className="flex shrink-0 items-center gap-1.5 overflow-hidden rounded-2xl border-[3px] border-ink/20 bg-kertas/95 px-2 py-1.5 bayangan-kartu sm:gap-2 sm:px-3">
+          <div className="hud flex shrink-0 items-center gap-1.5 overflow-hidden rounded-2xl border-[3px] border-ink/20 bg-kertas/95 px-2 py-1 bayangan-kartu sm:gap-2 sm:px-3 sm:py-1.5">
             <div className="flex shrink-0 items-center gap-1.5">
               <Duck profil={WARNA_PEMAIN[1]} nomor={2} ukuran={32} kedip={false} />
               <div className="hidden leading-none sm:block">
@@ -508,12 +508,12 @@ export default function App() {
           <RaceTrack pemain={pemain} target={pengaturan.langkahMenang} juaraId={juaraId} mulai={tahap === "main"} />
 
           <div
-            className={`grid min-h-0 flex-1 gap-1.5 sm:gap-2 ${
+            className={`grid min-h-0 flex-1 overflow-hidden gap-1.5 sm:gap-2 ${
               pengaturan.jumlahPemain === 2
-                ? "grid-cols-2"
+                ? "grid-cols-2 grid-rows-1"
                 : pengaturan.jumlahPemain === 3
-                  ? "grid-cols-2 lg:grid-cols-3"
-                  : "grid-cols-2 xl:grid-cols-4"
+                  ? "grid-cols-2 grid-rows-2 md:grid-cols-3 md:grid-rows-1"
+                  : "grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1"
             }`}
           >
             {pemain.map((p) => (

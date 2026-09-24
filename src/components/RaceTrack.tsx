@@ -42,7 +42,7 @@ function Awan({ atas, skala, durasi, tunda }: { atas: string; skala: number; dur
 export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
   return (
     <section
-      className="relative isolate shrink-0 overflow-hidden rounded-[22px] border-[3px] border-ink/25 shadow-[0_18px_40px_-20px_rgba(22,35,61,.65)]"
+      className="lintasan relative isolate h-auto min-h-0 max-h-[28vh] shrink overflow-hidden rounded-[18px] border-[3px] border-ink/25 shadow-[0_18px_40px_-20px_rgba(22,35,61,.65)] sm:rounded-[22px]"
       aria-label="Lintasan balap bebek"
     >
       {/* langit */}
@@ -105,7 +105,7 @@ export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
       </div>
 
       {/* isi lintasan */}
-      <div className="relative z-20 px-2 pt-6 pb-2 sm:px-3 sm:pt-7">
+      <div className="lintasan-isi relative z-20 overflow-hidden px-2 pt-3 pb-1 sm:px-3 sm:pt-6 sm:pb-2">
         <div className="mb-1 flex items-center justify-between px-0.5 font-display text-[9px] font-extrabold tracking-[0.16em] text-ink/70 uppercase sm:text-[10px]">
           <span className="rounded-full bg-white/70 px-2 py-0.5">Garis Start</span>
           <span className="hidden rounded-full bg-white/70 px-2 py-0.5 sm:inline">{target} langkah sampai finis</span>
@@ -115,7 +115,7 @@ export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
           </span>
         </div>
 
-        <div className="relative rounded-2xl border-[3px] border-ink/20 bg-[#f3d9a6]/60 p-1.5 shadow-inner sm:p-2">
+        <div className="relative rounded-2xl border-[3px] border-ink/20 bg-[#f3d9a6]/60 p-1 shadow-inner sm:p-2">
           {/* garis finis */}
           <div className="pointer-events-none absolute top-1 right-1 bottom-1 z-30 w-3 rounded-sm opacity-90" style={polaKotak} />
           <div className="pointer-events-none absolute top-1 bottom-1 left-1 z-30 w-1.5 rounded-sm bg-white/70" />
@@ -148,7 +148,7 @@ export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
                     </span>
                   </div>
 
-                  <div className="relative h-[46px] overflow-hidden rounded-xl border-2 border-white/60 bg-[linear-gradient(180deg,#f7e3b8,#e6c48c)] shadow-[inset_0_2px_6px_rgba(22,35,61,.18)] sm:h-[54px]">
+                  <div className="relative h-[38px] overflow-hidden rounded-xl border-2 border-white/60 bg-[linear-gradient(180deg,#f7e3b8,#e6c48c)] shadow-[inset_0_2px_6px_rgba(22,35,61,.18)] sm:h-[54px]">
                     {/* jalur putus-putus */}
                     <div
                       className="absolute inset-x-2 top-1/2 h-[3px] -translate-y-1/2 rounded opacity-60"
@@ -177,7 +177,7 @@ export default function RaceTrack({ pemain, target, juaraId, mulai }: Props) {
                       style={{ left: posisi(p.langkah, target) }}
                     >
                       <div className={p.lompat && mulai ? "anim-lompat" : mulai ? "anim-waddle" : "anim-idle"}>
-                        <Duck profil={profil} nomor={p.id + 1} ukuran={50} className="drop-shadow-[0_4px_6px_rgba(22,35,61,.28)] sm:scale-100" />
+                        <Duck profil={profil} nomor={p.id + 1} ukuran={42} className="drop-shadow-[0_4px_6px_rgba(22,35,61,.28)] sm:scale-100" />
                       </div>
                       {menang && (
                         <div className="anim-pop absolute -top-5 left-1/2 -translate-x-1/2">

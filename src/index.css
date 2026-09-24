@@ -234,3 +234,106 @@
   }
   .munculkan { opacity: 1; transform: none; }
 }
+
+/* ---------- Papan pemain: kontrol natural height ---------- */
+.papan-pemain {
+  container-type: size;
+  container-name: papan;
+}
+
+/* Layar pendek / zoom besar — prioritas: papan angka + JAWAB tetap terlihat */
+@media (max-height: 820px) {
+  .lintasan {
+    max-height: min(160px, 24vh);
+  }
+}
+@media (max-height: 760px) {
+  .lintasan {
+    max-height: min(140px, 22vh);
+  }
+  .gg-tombol {
+    height: 1.5rem;
+    font-size: 0.75rem;
+  }
+  .gg-hint {
+    display: none;
+  }
+  .gg-kepala-sub {
+    display: none;
+  }
+}
+@media (max-height: 680px) {
+  .lintasan {
+    max-height: min(118px, 20vh);
+  }
+  .gg-tombol {
+    height: 1.35rem;
+    font-size: 0.7rem;
+  }
+}
+@media (max-height: 640px) {
+  .lintasan {
+    max-height: min(108px, 18vh);
+  }
+  .gg-tombol {
+    height: 1.25rem;
+    font-size: 0.65rem;
+  }
+  .gg-kepala {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+  }
+  .hud {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+@media (max-height: 560px) {
+  .lintasan {
+    max-height: min(92px, 16vh);
+  }
+  .gg-tombol {
+    height: 1.15rem;
+    font-size: 0.625rem;
+  }
+  .gg-hint {
+    display: none;
+  }
+}
+
+/* Container query: kartu pemain pendek — kompakkan kontrol */
+@container papan (max-height: 320px) {
+  .gg-hint {
+    display: none;
+  }
+  .gg-kepala-sub {
+    display: none;
+  }
+  .gg-tombol {
+    height: 1.35rem;
+    font-size: 0.7rem;
+  }
+}
+@container papan (max-height: 250px) {
+  .gg-tombol {
+    height: 1.2rem;
+    font-size: 0.65rem;
+  }
+  .gg-jawab {
+    padding-top: 0.05rem;
+    padding-bottom: 0.05rem;
+  }
+}
+@container papan (max-height: 200px) {
+  .gg-tombol {
+    height: 1.05rem;
+    font-size: 0.6rem;
+    border-width: 1px;
+  }
+  .gg-kepala {
+    display: none;
+  }
+  .gg-hint {
+    display: none;
+  }
+}

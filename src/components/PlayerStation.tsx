@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { formatAngka } from "@/lib/generator";
+import { usePasangTeks } from "@/lib/pasangTeks";
 import { WARNA_PEMAIN, type Pemain, type ProfilWarna } from "@/types";
 
 export type AksiPapan = "angka" | "hapus" | "bersih" | "kirim";
@@ -41,7 +42,7 @@ function Tombol({
       aria-label={ariaLabel}
       onClick={onClick}
       style={{ gridColumn: `span ${span} / span ${span}`, ...gaya }}
-      className="font-display flex h-8 select-none touch-manipulation items-center justify-center rounded-lg border-2 border-ink/15 text-base font-extrabold transition-all duration-75 hover:brightness-[1.03] active:translate-y-[3px] sm:h-9 sm:text-lg"
+        className="font-display gg-tombol flex h-6 select-none touch-manipulation items-center justify-center rounded-lg border-2 border-ink/15 text-xs font-extrabold transition-all duration-75 hover:brightness-[1.03] active:translate-y-[3px] sm:h-8 sm:text-base"
     >
       {label}
     </button>
@@ -53,6 +54,9 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
   const angka = useMemo(() => ["1", "2", "3", "4", "5", "6", "7", "8", "9"], []);
   const juara = pemain.peringkat !== null;
   const tampilanInput = pemain.input ? formatAngka(Number(pemain.input)) : "";
+  const kunciSoal =
+    pemain.soal.jenis === "cerita" ? pemain.soal.teks : `${pemain.soal.tampilan} = ?`;
+  const kotakSoal = usePasangTeks(kunciSoal, pemain.soal.jenis === "cerita" ? 14 : 30, 7);
 
   const tekan = (aksi: AksiPapan, nilai?: string) => {
     if (nonaktif || juara) return;
@@ -61,14 +65,14 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
 
   return (
     <article
-      className="relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-[3px] bg-kertas bayangan-kartu"
+      className="papan-pemain relative flex h-full max-h-full min-h-0 flex-col overflow-hidden rounded-2xl border-[3px] bg-kertas bayangan-kartu"
       style={{ borderColor: profil.tua }}
       aria-label={`Papan soal pemain ${pemain.id + 1} ${pemain.nama}`}
     >
       {/* kepala */}
-      <header className="relative flex shrink-0 items-center gap-2 px-2 py-1.5" style={{ background: profil.utama }}>
+      <header className="gg-kepala relative z-10 flex shrink-0 items-center gap-2 px-2 py-1" style={{ background: profil.utama }}>
         <span
-          className="font-display flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 border-ink/20 text-xs font-extrabold text-ink"
+          className="font-display flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border-2 border-ink/20 text-[10px] font-extrabold text-ink sm:h-6 sm:w-6 sm:text-xs"
           style={{ background: "#fffaf0" }}
         >
           {pemain.id + 1}
@@ -77,13 +81,13 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
           <p className="font-display truncate text-sm leading-tight font-extrabold text-white drop-shadow-[0_1px_0_rgba(22,35,61,.35)] sm:text-base">
             {pemain.nama}
           </p>
-          <p className="text-[9px] leading-tight font-bold text-ink/55">
+          <p className="gg-kepala-sub text-[9px] leading-tight font-bold text-ink/55">
             Bebek {profil.nama}
             {pakaiKeyboard && pemain.id === 0 ? " · keyboard" : ""}
           </p>
         </div>
         <div className="shrink-0 text-right">
-          <p className="font-display text-base leading-none font-extrabold text-white tabular-nums drop-shadow-[0_1px_0_rgba(22,35,61,.35)]">
+          <p className="font-display text-sm leading-none font-extrabold text-white tabular-nums drop-shadow-[0_1px_0_rgba(22,35,61,.35)] sm:text-base">
             {pemain.langkah}
             <span className="text-[10px] opacity-80">/{target}</span>
           </p>
@@ -99,8 +103,8 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
         </div>
       </header>
 
-      {/* isi */}
-      <div className="tekstur-kertas flex min-h-0 flex-1 flex-col gap-1.5 overflow-hidden px-2 pt-1.5 pb-1.5">
+      {/* isi — soal mengisi sisa ruang; kontrol di alur flex (JAWAB selalu terlihat) */}
+      <div className="tekstur-kertas relative flex min-h-0 flex-1 flex-col overflow-hidden px-2 pt-1.5 pb-1">
         <div className="flex shrink-0 items-center justify-between gap-2">
           <span
             className="font-display rounded-full px-1.5 py-[2px] text-[9px] font-extrabold tracking-wide uppercase"
@@ -130,19 +134,27 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
           </div>
         </div>
 
+        {/* kotak soal — teks diskalakan agar tidak keluar garis */}
         <div
           key={`${pemain.urutanSoal}-${pemain.soal.id}-${pemain.soal.tampilan}-${pemain.soal.jawaban}`}
-          className="anim-muncul relative flex min-h-0 flex-1 shrink items-center rounded-xl border-[3px] border-dashed px-2 py-1.5"
+          ref={kotakSoal}
+          className="anim-muncul relative flex min-h-0 flex-1 shrink items-center justify-center overflow-hidden rounded-xl border-[3px] border-dashed px-2 py-1"
           style={{ borderColor: `${profil.tua}55`, background: "#fffdf6" }}
         >
           {pemain.soal.jenis === "cerita" ? (
-            <p className="font-body line-clamp-4 text-[11px] leading-snug font-bold text-ink sm:text-xs">{pemain.soal.teks}</p>
+            <p
+              data-pasang
+              className="font-body w-full text-center leading-snug font-bold text-ink"
+              style={{ overflowWrap: "anywhere" }}
+            >
+              {pemain.soal.teks}
+            </p>
           ) : (
-            <div className="flex w-full flex-col items-center justify-center gap-0.5">
-              <p className="font-display text-2xl leading-none font-extrabold tracking-tight text-ink tabular-nums sm:text-3xl">
+            <div data-pasang className="flex w-full flex-col items-center justify-center gap-0.5">
+              <p className="font-display leading-none font-extrabold tracking-tight text-ink tabular-nums">
                 {pemain.soal.tampilan}
               </p>
-              <p className="font-display text-xl leading-none font-extrabold" style={{ color: profil.tua }}>
+              <p className="font-display leading-none font-extrabold" style={{ color: profil.tua, fontSize: "0.72em" }}>
                 = ?
               </p>
             </div>
@@ -150,33 +162,34 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
 
           {pemain.umpan !== "idle" && (
             <div
-              className="anim-pop absolute inset-x-2 -bottom-3 z-10 flex items-center justify-center gap-1 rounded-full px-2 py-0.5 font-display text-[10px] font-extrabold text-white shadow-lg"
+              className="anim-pop absolute inset-x-1 bottom-1 z-10 flex items-center justify-center rounded-full px-1.5 py-0.5 font-display text-[9px] font-extrabold text-white shadow-lg sm:text-[10px]"
               style={{ background: pemain.umpan === "benar" ? "#35c46b" : "#ff5d5d" }}
             >
-              {pemain.umpan === "benar" ? "Benar! Maju 1 langkah" : "Coba lagi ya!"}
+              {pemain.umpan === "benar" ? "Benar! Maju 1" : "Coba lagi ya!"}
             </div>
           )}
         </div>
+      </div>
 
-        {/* layar jawaban */}
+      {/* area kontrol — dalam alur flex, tinggi natural: JAWAB selalu terlihat */}
+      <div className="gg-bawah relative z-20 flex shrink-0 flex-col gap-1 border-t-2 border-ink/10 bg-kertas/95 px-2 pt-1.5 pb-1.5">
         <div
-          className={`flex shrink-0 items-center justify-between gap-2 rounded-xl border-[3px] px-2 py-1 transition-colors ${
+          className={`gg-jawab flex shrink-0 items-center justify-between gap-2 rounded-lg border-[3px] px-2 py-0.5 transition-colors ${
             pemain.umpan === "salah" ? "anim-goyang" : ""
           }`}
           style={{ borderColor: profil.tua, background: "#fff" }}
         >
           <span className="font-display text-[9px] font-extrabold tracking-widest text-ink-3 uppercase">Jawab</span>
-          <span className="font-display min-h-[22px] flex-1 text-right text-xl leading-none font-extrabold text-ink tabular-nums sm:text-2xl">
+          <span className="font-display min-h-[18px] flex-1 text-right text-lg leading-none font-extrabold text-ink tabular-nums sm:text-2xl">
             {tampilanInput || <span className="text-ink-3/50">—</span>}
             <span
-              className="anim-kursor ml-0.5 inline-block h-5 w-[3px] translate-y-[2px]"
+              className="anim-kursor ml-0.5 inline-block h-4 w-[3px] translate-y-[2px] sm:h-5"
               style={{ background: profil.tua }}
             />
           </span>
         </div>
 
-        {/* papan angka */}
-        <div className="grid shrink-0 grid-cols-3 gap-1">
+        <div className="grid min-h-0 flex-1 grid-cols-3 gap-1">
           {angka.map((n) => (
             <Tombol key={n} label={n} warna={profil} onClick={() => tekan("angka", n)} ariaLabel={`Angka ${n}`} />
           ))}
@@ -188,7 +201,7 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
             onClick={() => tekan("hapus")}
             ariaLabel="Hapus satu angka"
             label={
-              <svg width="18" height="14" viewBox="0 0 24 20" aria-hidden="true">
+              <svg width="16" height="12" viewBox="0 0 24 20" aria-hidden="true" className="sm:w-[18px] sm:h-[14px]">
                 <path d="M8 2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8L0 10z" fill="none" stroke="#16233d" strokeWidth="2.4" strokeLinejoin="round" />
                 <path d="M12 6l7 8M19 6l-7 8" stroke="#16233d" strokeWidth="2.4" strokeLinecap="round" />
               </svg>
@@ -211,7 +224,7 @@ export default function PlayerStation({ pemain, target, panjangMaks, nonaktif, p
           />
         </div>
 
-        <p className="shrink-0 text-center text-[9px] font-bold text-ink-3">
+        <p className="gg-hint shrink-0 text-center text-[9px] font-bold text-ink-3">
           {pemain.salahBeruntun > 0
             ? `${pemain.salahBeruntun}/3 salah — soal berganti otomatis`
             : `Ketik jawaban lalu tekan JAWAB`}
