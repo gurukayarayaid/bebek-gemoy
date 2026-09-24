@@ -1,0 +1,3 @@
+# Berkas ini sengaja dibiarkan kosong.
+# Fungsinya: memberi tahu GitHub Pages agar TIDAK memproses folder dengan Jekyll,
+# sehingga folder/berkas seperti `data/soal.json` tetap bisa diakses apa adanya.

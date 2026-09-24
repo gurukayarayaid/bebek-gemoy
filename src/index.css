@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-body: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #16233d;
+  --color-ink-2: #3b4d70;
+  --color-ink-3: #6c7d9c;
+  --color-kertas: #fffaf0;
+  --color-langit: #8fd4fb;
+  --color-langit-tua: #4aa8e8;
+  --color-rumput: #5ec24d;
+  --color-rumput-tua: #349a3c;
+  --color-tanah: #d9a566;
+
+  --color-p1: #ff5d5d;
+  --color-p1-tua: #d33a3a;
+  --color-p1-muda: #ffe3e3;
+  --color-p2: #ffc531;
+  --color-p2-tua: #dd9b06;
+  --color-p2-muda: #fff3d0;
+  --color-p3: #35c46b;
+  --color-p3-tua: #1f9a51;
+  --color-p3-muda: #d8f7e3;
+  --color-p4: #3aa0ff;
+  --color-p4-tua: #1c78d6;
+  --color-p4-muda: #dcf0ff;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: #bde7ff;
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, #eaf9ff 0%, #b7e5ff 38%, #8ed0f7 68%, #6cbbec 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+  button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  input {
+    font-family: inherit;
+  }
+  ::selection {
+    background: #ffc531;
+    color: #16233d;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .tekstur-kertas {
+    background-image: radial-gradient(rgba(22, 35, 61, 0.06) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  .garis-kotak {
+    background-image:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.5) 50%, transparent 50%);
+    background-size: 18px 18px;
+  }
+  .bayangan-kartu {
+    box-shadow: 0 4px 0 0 rgba(22, 35, 61, 0.14), 0 16px 34px -14px rgba(22, 35, 61, 0.4);
+  }
+  .bayangan-tombol {
+    box-shadow: 0 4px 0 0 currentColor;
+  }
+  .tanpa-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .tanpa-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+/* ---------- Animasi ---------- */
+@keyframes gg-waddle {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(4deg) translateY(-3px); }
+}
+@keyframes gg-idle {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-4px) rotate(1.5deg); }
+}
+@keyframes gg-lompat {
+  0% { transform: translateY(0) scale(1, 1); }
+  25% { transform: translateY(-22px) scale(0.94, 1.08); }
+  55% { transform: translateY(0) scale(1.06, 0.92); }
+  75% { transform: translateY(-6px) scale(0.99, 1.02); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes gg-goyang {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-9px) rotate(-3deg); }
+  30% { transform: translateX(8px) rotate(3deg); }
+  45% { transform: translateX(-6px) rotate(-2deg); }
+  60% { transform: translateX(5px) rotate(2deg); }
+  80% { transform: translateX(-2px); }
+}
+@keyframes gg-awan {
+  from { transform: translateX(-22vw); }
+  to { transform: translateX(122vw); }
+}
+@keyframes gg-terbang {
+  0% { transform: translate(-10vw, 0) scale(0.8); }
+  50% { transform: translate(50vw, -18px) scale(1); }
+  100% { transform: translate(112vw, 6px) scale(0.75); }
+}
+@keyframes gg-putar {
+  to { transform: rotate(360deg); }
+}
+@keyframes gg-ombak {
+  0%, 100% { transform: translateX(0) scaleY(1); }
+  50% { transform: translateX(-24px) scaleY(1.12); }
+}
+@keyframes gg-ayun {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
+}
+@keyframes gg-muncul {
+  from { opacity: 0; transform: translateY(22px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes gg-pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  60% { transform: scale(1.14); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes gg-kilau {
+  0% { background-position: -180% 0; }
+  100% { background-position: 180% 0; }
+}
+@keyframes gg-konfeti {
+  0% { transform: translate3d(0, -12vh, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate3d(var(--dx, 0), 112vh, 0) rotate(var(--rot, 720deg)); opacity: 0.9; }
+}
+@keyframes gg-denyut {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 197, 49, 0.6); }
+  70% { box-shadow: 0 0 0 18px rgba(255, 197, 49, 0); }
+}
+@keyframes gg-hitungmundur {
+  0% { transform: scale(2.2); opacity: 0; }
+  30% { transform: scale(1); opacity: 1; }
+  75% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.6); opacity: 0; }
+}
+@keyframes gg-naik {
+  from { opacity: 0; transform: translateY(34px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gg-melayang {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+@keyframes gg-kedip {
+  0%, 90%, 100% { transform: scaleY(1); }
+  94% { transform: scaleY(0.08); }
+}
+@keyframes gg-kursor {
+  0%, 48% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.anim-kursor {
+  animation: gg-kursor 1s steps(1, end) infinite;
+}
+.anim-kedip {
+  animation: gg-kedip 5.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.anim-waddle { animation: gg-waddle 0.5s ease-in-out infinite; }
+.anim-idle { animation: gg-idle 2.4s ease-in-out infinite; }
+.anim-lompat { animation: gg-lompat 0.62s cubic-bezier(0.3, 1.4, 0.5, 1) 1; }
+.anim-goyang { animation: gg-goyang 0.5s ease-in-out 1; }
+.anim-awan { animation: gg-awan linear infinite; }
+.anim-terbang { animation: gg-terbang 22s linear infinite; }
+.anim-putar { animation: gg-putar 26s linear infinite; }
+.anim-ombak { animation: gg-ombak 5s ease-in-out infinite; }
+.anim-ayun { animation: gg-ayun 1.6s ease-in-out infinite; transform-origin: top center; }
+.anim-muncul { animation: gg-muncul 0.4s cubic-bezier(0.2, 1.3, 0.4, 1) both; }
+.anim-pop { animation: gg-pop 0.34s cubic-bezier(0.2, 1.5, 0.4, 1) both; }
+.anim-denyut { animation: gg-denyut 1.8s ease-out infinite; }
+.anim-hitung { animation: gg-hitungmundur 0.9s ease-out both; }
+.anim-melayang { animation: gg-melayang 4s ease-in-out infinite; }
+.anim-naik { animation: gg-naik 0.6s cubic-bezier(0.2, 1, 0.3, 1) both; }
+
+.munculkan {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.7s cubic-bezier(0.2, 1, 0.3, 1), transform 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.munculkan.sudah-muncul {
+  opacity: 1;
+  transform: none;
+}
+
+.kilau-teks {
+  background-image: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.85) 42%, transparent 64%);
+  background-size: 220% 100%;
+  animation: gg-kilau 3.4s linear infinite;
+}
+
+.konfeti-keping {
+  position: absolute;
+  top: 0;
+  animation: gg-konfeti linear forwards;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-waddle, .anim-idle, .anim-awan, .anim-terbang, .anim-putar, .anim-ombak,
+  .anim-ayun, .anim-denyut, .anim-melayang, .kilau-teks {
+    animation: none !important;
+  }
+  .munculkan { opacity: 1; transform: none; }
+}

@@ -1,0 +1,188 @@
+{
+  "versi": "1.0.0",
+  "judul": "Bank Soal Bebek Gemoy",
+  "keterangan": "Database soal game balap Bebek Gemoy. Berkas ini dibaca aplikasi saat dibuka. Silakan edit/tambah soal langsung di GitHub lalu commit — tidak perlu mengubah kode aplikasi.",
+  "diperbarui": "2026-01-05",
+  "aturan": {
+    "langkahMenang": 10,
+    "maksSalahGantiSoal": 3,
+    "panjangJawabanMaks": 8
+  },
+  "rentang": {
+    "1": {
+      "tambah": {
+        "mudah": { "aMin": 1, "aMax": 5, "bMin": 1, "bMax": 5 },
+        "sedang": { "aMin": 2, "aMax": 10, "bMin": 1, "bMax": 9 },
+        "sulit": { "aMin": 11, "aMax": 20, "bMin": 2, "bMax": 9 }
+      },
+      "kurang": {
+        "mudah": { "aMin": 2, "aMax": 10, "bMin": 1, "bMax": 5 },
+        "sedang": { "aMin": 6, "aMax": 15, "bMin": 1, "bMax": 9 },
+        "sulit": { "aMin": 11, "aMax": 20, "bMin": 2, "bMax": 10 }
+      },
+      "kali": {
+        "mudah": { "aMin": 1, "aMax": 2, "bMin": 1, "bMax": 5 },
+        "sedang": { "aMin": 2, "aMax": 3, "bMin": 2, "bMax": 5 },
+        "sulit": { "aMin": 2, "aMax": 5, "bMin": 2, "bMax": 9 }
+      },
+      "bagi": {
+        "mudah": { "hMin": 1, "hMax": 2, "bMin": 2, "bMax": 3 },
+        "sedang": { "hMin": 2, "hMax": 5, "bMin": 2, "bMax": 3 },
+        "sulit": { "hMin": 2, "hMax": 9, "bMin": 2, "bMax": 5 }
+      }
+    },
+    "2": {
+      "tambah": {
+        "mudah": { "aMin": 1, "aMax": 20, "bMin": 1, "bMax": 20 },
+        "sedang": { "aMin": 11, "aMax": 50, "bMin": 11, "bMax": 49 },
+        "sulit": { "aMin": 25, "aMax": 99, "bMin": 25, "bMax": 99 }
+      },
+      "kurang": {
+        "mudah": { "aMin": 5, "aMax": 20, "bMin": 1, "bMax": 9 },
+        "sedang": { "aMin": 21, "aMax": 50, "bMin": 10, "bMax": 20 },
+        "sulit": { "aMin": 30, "aMax": 99, "bMin": 11, "bMax": 29 }
+      },
+      "kali": {
+        "mudah": { "aMin": 1, "aMax": 5, "bMin": 1, "bMax": 5 },
+        "sedang": { "aMin": 2, "aMax": 6, "bMin": 2, "bMax": 9 },
+        "sulit": { "aMin": 6, "aMax": 10, "bMin": 3, "bMax": 10 }
+      },
+      "bagi": {
+        "mudah": { "hMin": 1, "hMax": 5, "bMin": 2, "bMax": 5 },
+        "sedang": { "hMin": 2, "hMax": 9, "bMin": 2, "bMax": 9 },
+        "sulit": { "hMin": 5, "hMax": 10, "bMin": 4, "bMax": 10 }
+      }
+    },
+    "3": {
+      "tambah": {
+        "mudah": { "aMin": 10, "aMax": 50, "bMin": 10, "bMax": 50 },
+        "sedang": { "aMin": 50, "aMax": 200, "bMin": 25, "bMax": 150 },
+        "sulit": { "aMin": 100, "aMax": 500, "bMin": 100, "bMax": 499 }
+      },
+      "kurang": {
+        "mudah": { "aMin": 20, "aMax": 50, "bMin": 5, "bMax": 19 },
+        "sedang": { "aMin": 60, "aMax": 200, "bMin": 10, "bMax": 59 },
+        "sulit": { "aMin": 250, "aMax": 900, "bMin": 100, "bMax": 249 }
+      },
+      "kali": {
+        "mudah": { "aMin": 2, "aMax": 9, "bMin": 2, "bMax": 9 },
+        "sedang": { "aMin": 10, "aMax": 20, "bMin": 2, "bMax": 9 },
+        "sulit": { "aMin": 11, "aMax": 50, "bMin": 3, "bMax": 9 }
+      },
+      "bagi": {
+        "mudah": { "hMin": 2, "hMax": 9, "bMin": 2, "bMax": 9 },
+        "sedang": { "hMin": 10, "hMax": 20, "bMin": 2, "bMax": 9 },
+        "sulit": { "hMin": 11, "hMax": 50, "bMin": 3, "bMax": 9 }
+      }
+    },
+    "4": {
+      "tambah": {
+        "mudah": { "aMin": 50, "aMax": 300, "bMin": 50, "bMax": 300 },
+        "sedang": { "aMin": 200, "aMax": 2000, "bMin": 100, "bMax": 999 },
+        "sulit": { "aMin": 1000, "aMax": 9999, "bMin": 1000, "bMax": 8999 }
+      },
+      "kurang": {
+        "mudah": { "aMin": 100, "aMax": 500, "bMin": 10, "bMax": 99 },
+        "sedang": { "aMin": 600, "aMax": 3000, "bMin": 100, "bMax": 599 },
+        "sulit": { "aMin": 3000, "aMax": 9999, "bMin": 1000, "bMax": 2999 }
+      },
+      "kali": {
+        "mudah": { "aMin": 10, "aMax": 30, "bMin": 2, "bMax": 9 },
+        "sedang": { "aMin": 20, "aMax": 99, "bMin": 10, "bMax": 30 },
+        "sulit": { "aMin": 100, "aMax": 999, "bMin": 11, "bMax": 99 }
+      },
+      "bagi": {
+        "mudah": { "hMin": 10, "hMax": 30, "bMin": 2, "bMax": 9 },
+        "sedang": { "hMin": 20, "hMax": 99, "bMin": 10, "bMax": 30 },
+        "sulit": { "hMin": 100, "hMax": 999, "bMin": 11, "bMax": 99 }
+      }
+    },
+    "5": {
+      "tambah": {
+        "mudah": { "aMin": 200, "aMax": 1500, "bMin": 100, "bMax": 999 },
+        "sedang": { "aMin": 1000, "aMax": 9999, "bMin": 500, "bMax": 4999 },
+        "sulit": { "aMin": 10000, "aMax": 89999, "bMin": 5000, "bMax": 49999 }
+      },
+      "kurang": {
+        "mudah": { "aMin": 500, "aMax": 3000, "bMin": 100, "bMax": 499 },
+        "sedang": { "aMin": 3000, "aMax": 20000, "bMin": 500, "bMax": 2999 },
+        "sulit": { "aMin": 20000, "aMax": 99999, "bMin": 5000, "bMax": 19999 }
+      },
+      "kali": {
+        "mudah": { "aMin": 20, "aMax": 99, "bMin": 2, "bMax": 9 },
+        "sedang": { "aMin": 100, "aMax": 999, "bMin": 10, "bMax": 99 },
+        "sulit": { "aMin": 1000, "aMax": 9999, "bMin": 11, "bMax": 99 }
+      },
+      "bagi": {
+        "mudah": { "hMin": 20, "hMax": 99, "bMin": 2, "bMax": 9 },
+        "sedang": { "hMin": 100, "hMax": 999, "bMin": 10, "bMax": 99 },
+        "sulit": { "hMin": 1000, "hMax": 9999, "bMin": 11, "bMax": 99 }
+      }
+    },
+    "6": {
+      "tambah": {
+        "mudah": { "aMin": 1000, "aMax": 9999, "bMin": 1000, "bMax": 9999 },
+        "sedang": { "aMin": 10000, "aMax": 99999, "bMin": 10000, "bMax": 89999 },
+        "sulit": { "aMin": 100000, "aMax": 899999, "bMin": 100000, "bMax": 899999 }
+      },
+      "kurang": {
+        "mudah": { "aMin": 5000, "aMax": 20000, "bMin": 1000, "bMax": 4999 },
+        "sedang": { "aMin": 20000, "aMax": 99999, "bMin": 5000, "bMax": 19999 },
+        "sulit": { "aMin": 200000, "aMax": 999999, "bMin": 50000, "bMax": 199999 }
+      },
+      "kali": {
+        "mudah": { "aMin": 100, "aMax": 999, "bMin": 2, "bMax": 9 },
+        "sedang": { "aMin": 1000, "aMax": 9999, "bMin": 10, "bMax": 99 },
+        "sulit": { "aMin": 10000, "aMax": 99999, "bMin": 11, "bMax": 99 }
+      },
+      "bagi": {
+        "mudah": { "hMin": 100, "hMax": 999, "bMin": 2, "bMax": 9 },
+        "sedang": { "hMin": 1000, "hMax": 9999, "bMin": 10, "bMax": 99 },
+        "sulit": { "hMin": 10000, "hMax": 99999, "bMin": 11, "bMax": 99 }
+      }
+    }
+  },
+  "bank": [
+    { "id": "k1-cerita-01", "kelas": 1, "operasi": "tambah", "level": "mudah", "teks": "Bebek Kuni punya 3 buah apel. Ibu memberi 2 apel lagi. Berapa apel Kuni sekarang?", "jawaban": 5 },
+    { "id": "k1-cerita-02", "kelas": 1, "operasi": "tambah", "level": "sedang", "teks": "Di kolam ada 4 bebek sedang berenang. Datang lagi 3 bebek. Ada berapa bebek di kolam?", "jawaban": 7 },
+    { "id": "k1-cerita-03", "kelas": 1, "operasi": "kurang", "level": "mudah", "teks": "Ada 8 butir telur bebek di sarang. Ternyata 2 telur pecah. Berapa telur yang masih utuh?", "jawaban": 6 },
+    { "id": "k1-cerita-04", "kelas": 1, "operasi": "kurang", "level": "sedang", "teks": "Kuni membawa 10 biji jagung. Sebanyak 4 biji sudah dimakan. Sisa berapa biji jagung?", "jawaban": 6 },
+    { "id": "k1-cerita-05", "kelas": 1, "operasi": "kali", "level": "sedang", "teks": "Ada 3 keranjang. Setiap keranjang berisi 4 butir telur. Berapa banyak telur semuanya?", "jawaban": 12 },
+    { "id": "k1-cerita-06", "kelas": 1, "operasi": "bagi", "level": "sedang", "teks": "12 ekor ikan dibagikan sama banyak kepada 3 bebek. Setiap bebek mendapat berapa ikan?", "jawaban": 4 },
+
+    { "id": "k2-cerita-01", "kelas": 2, "operasi": "tambah", "level": "mudah", "teks": "Peternak memiliki 25 ekor bebek. Ia membeli lagi 12 ekor bebek. Berapa jumlah bebek sekarang?", "jawaban": 37 },
+    { "id": "k2-cerita-02", "kelas": 2, "operasi": "tambah", "level": "sedang", "teks": "Pagi ini panen 48 buah jagung, siang hari panen lagi 35 buah. Berapa jagung seluruhnya?", "jawaban": 83 },
+    { "id": "k2-cerita-03", "kelas": 2, "operasi": "kurang", "level": "sedang", "teks": "Di kolam ada 60 ekor ikan. Sebanyak 18 ikan dimakan bangau. Berapa ikan yang tersisa?", "jawaban": 42 },
+    { "id": "k2-cerita-04", "kelas": 2, "operasi": "kurang", "level": "sulit", "teks": "Bebek memiliki 90 butir telur. Sebanyak 45 butir dijual ke pasar. Sisa berapa butir telur?", "jawaban": 45 },
+    { "id": "k2-cerita-05", "kelas": 2, "operasi": "kali", "level": "sedang", "teks": "Ada 6 kandang bebek. Setiap kandang berisi 7 ekor bebek. Berapa banyak bebek semuanya?", "jawaban": 42 },
+    { "id": "k2-cerita-06", "kelas": 2, "operasi": "bagi", "level": "sedang", "teks": "36 biji jagung dibagikan sama rata kepada 6 bebek. Setiap bebek mendapat berapa biji?", "jawaban": 6 },
+
+    { "id": "k3-cerita-01", "kelas": 3, "operasi": "tambah", "level": "sedang", "teks": "Toko menjual 125 butir telur pada pagi hari dan 148 butir pada siang hari. Berapa total telur terjual?", "jawaban": 273 },
+    { "id": "k3-cerita-02", "kelas": 3, "operasi": "kurang", "level": "sedang", "teks": "Pak Tani mempunyai 350 kg padi. Sudah terjual 175 kg. Berapa kg padi yang tersisa?", "jawaban": 175 },
+    { "id": "k3-cerita-03", "kelas": 3, "operasi": "kali", "level": "mudah", "teks": "Seekor bebek bertelur 8 butir setiap minggu. Berapa butir telur dalam 7 minggu?", "jawaban": 56 },
+    { "id": "k3-cerita-04", "kelas": 3, "operasi": "kali", "level": "sulit", "teks": "Sebuah truk memuat 24 keranjang. Setiap keranjang berisi 15 butir telur. Berapa banyak telur di truk?", "jawaban": 360 },
+    { "id": "k3-cerita-05", "kelas": 3, "operasi": "bagi", "level": "sedang", "teks": "180 ekor ikan dibagi rata ke 9 kolam. Setiap kolam berisi berapa ekor ikan?", "jawaban": 20 },
+    { "id": "k3-cerita-06", "kelas": 3, "operasi": "bagi", "level": "sulit", "teks": "432 butir telur disusun ke dalam 12 rak sama banyak. Setiap rak berisi berapa butir telur?", "jawaban": 36 },
+
+    { "id": "k4-cerita-01", "kelas": 4, "operasi": "tambah", "level": "sulit", "teks": "Penduduk Desa Gemoy 4.250 orang. Tahun ini bertambah 1.875 orang. Berapa jumlah penduduk sekarang?", "jawaban": 6125 },
+    { "id": "k4-cerita-02", "kelas": 4, "operasi": "kurang", "level": "sedang", "teks": "Panen beras mencapai 3.200 kg. Sudah terjual 1.450 kg. Berapa kg beras yang tersisa?", "jawaban": 1750 },
+    { "id": "k4-cerita-03", "kelas": 4, "operasi": "kali", "level": "sedang", "teks": "Peternakan memiliki 48 kandang. Setiap kandang berisi 25 ekor bebek. Berapa banyak bebek seluruhnya?", "jawaban": 1200 },
+    { "id": "k4-cerita-04", "kelas": 4, "operasi": "bagi", "level": "sedang", "teks": "Sebanyak 1.152 butir telur dimuat ke dalam 36 kotak sama banyak. Setiap kotak berisi berapa butir?", "jawaban": 32 },
+    { "id": "k4-cerita-05", "kelas": 4, "operasi": "tambah", "level": "mudah", "teks": "Kolam A berisi 780 liter air, kolam B berisi 965 liter air. Berapa liter air seluruhnya?", "jawaban": 1745 },
+    { "id": "k4-cerita-06", "kelas": 4, "operasi": "kali", "level": "sulit", "teks": "Satu karung pakan bebek beratnya 125 kg. Jika ada 32 karung, berapa kg berat seluruhnya?", "jawaban": 4000 },
+
+    { "id": "k5-cerita-01", "kelas": 5, "operasi": "tambah", "level": "sedang", "teks": "Hasil panen jagung 12.450 kg, lalu ditambah panen 8.675 kg. Berapa kg jagung semuanya?", "jawaban": 21125 },
+    { "id": "k5-cerita-02", "kelas": 5, "operasi": "kurang", "level": "sulit", "teks": "Uang koperasi sekolah Rp85.000 dipakai membeli pakan seharga Rp47.500. Berapa sisa uang koperasi?", "jawaban": 37500 },
+    { "id": "k5-cerita-03", "kelas": 5, "operasi": "kali", "level": "sedang", "teks": "Sebuah truk mengangkut 250 kotak telur. Setiap kotak berisi 48 butir. Berapa butir telur di truk?", "jawaban": 12000 },
+    { "id": "k5-cerita-04", "kelas": 5, "operasi": "bagi", "level": "sedang", "teks": "Sebanyak 4.320 butir telur dikemas ke dalam 36 keranjang sama banyak. Setiap keranjang berisi berapa?", "jawaban": 120 },
+    { "id": "k5-cerita-05", "kelas": 5, "operasi": "kurang", "level": "mudah", "teks": "Jarak kandang ke kolam 5.200 meter. Bebek sudah berjalan 2.350 meter. Berapa meter lagi sisanya?", "jawaban": 2850 },
+    { "id": "k5-cerita-06", "kelas": 5, "operasi": "kali", "level": "sulit", "teks": "Peternakan memiliki 125 baris kandang. Setiap baris berisi 84 ekor bebek. Berapa banyak bebek?", "jawaban": 10500 },
+
+    { "id": "k6-cerita-01", "kelas": 6, "operasi": "tambah", "level": "sulit", "teks": "Produksi telur bulan ini 145.500 butir, sedangkan bulan lalu 128.750 butir. Berapa jumlah keduanya?", "jawaban": 274250 },
+    { "id": "k6-cerita-02", "kelas": 6, "operasi": "kurang", "level": "sulit", "teks": "Stok pakan bebek 320.000 gram. Sudah terpakai 145.750 gram. Berapa gram pakan yang tersisa?", "jawaban": 174250 },
+    { "id": "k6-cerita-03", "kelas": 6, "operasi": "kali", "level": "sulit", "teks": "Pabrik mengemas 1.250 dus telur. Setiap dus berisi 96 butir. Berapa butir telur seluruhnya?", "jawaban": 120000 },
+    { "id": "k6-cerita-04", "kelas": 6, "operasi": "bagi", "level": "sulit", "teks": "Sebanyak 288.000 butir telur dikirim merata ke 96 toko. Setiap toko menerima berapa butir?", "jawaban": 3000 },
+    { "id": "k6-cerita-05", "kelas": 6, "operasi": "kali", "level": "sedang", "teks": "Harga satu butir telur Rp2.500. Berapa rupiah harga 450 butir telur?", "jawaban": 1125000 },
+    { "id": "k6-cerita-06", "kelas": 6, "operasi": "bagi", "level": "sedang", "teks": "Ada 15.000 butir telur dibagi ke 60 keranjang sama banyak. Setiap keranjang berisi berapa butir?", "jawaban": 250 }
+  ]
+}
